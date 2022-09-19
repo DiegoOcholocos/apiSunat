@@ -32,5 +32,5 @@ public class Persona {
 
     @Transient
     @OneToMany(fetch = FetchType.LAZY)
-    private List<PagoAbono> pagoAbono;
+    private List<Factura> factura;
 }

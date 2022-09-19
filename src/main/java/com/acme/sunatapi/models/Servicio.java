@@ -18,28 +18,26 @@ import org.springframework.format.annotation.DateTimeFormat;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "t_empresa")
-public class Empresa {
-
+@Table(name = "t_servicio")
+public class Servicio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id; 
-    private BigInteger ruc;
-    private String razonSocial;
-    private String direccion;
+    private String nombreServicio;
+    private String descripcionServicio;
+    private float precio;
 
-    /* @Transient
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Factura> factura;*/
-
-    @Transient
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Servicio> servicio;
+    /* @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="orden_id")
+    private Orden orden;*/
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="orden_id")
-    private Orden orden;
+    @JoinColumn(name="empresa_id")
+    private Empresa empresa;
+
+
 
 
 
