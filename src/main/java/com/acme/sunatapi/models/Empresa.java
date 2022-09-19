@@ -1,6 +1,5 @@
 package com.acme.sunatapi.models;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
@@ -31,16 +30,14 @@ public class Empresa {
 
     @DateTimeFormat(pattern="dd/MM/yyyy")
     private Date fechaInscripcion;
-
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "detalleImpuesto_id")
-    private DetalleImpuesto detalleImpuestoId;
+    
+    @Transient
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<DetalleImpuesto> detalleImpuesto;
 
     @Transient
     @OneToMany(fetch = FetchType.LAZY)
-    private List<Persona> persona;
+    private List<PagoAbono> pagoAbono;
 
-
-
+    
 }

@@ -3,6 +3,7 @@ package com.acme.sunatapi.models;
 
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 import lombok.*;
 import javax.persistence.*;
 
@@ -29,5 +30,7 @@ public class Persona {
     private Date fechaNac;
     private String direccion;
 
-
+    @Transient
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<PagoAbono> pagoAbono;
 }

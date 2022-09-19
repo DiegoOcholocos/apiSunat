@@ -38,13 +38,16 @@ public class DetalleImpuesto {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fecha_pago;
     private BigDecimal monto_total;
-    @Transient
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Empresa> empresa;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="detalleImpuesto_id")
+    @JoinColumn(name="empresa_id")
+    private Empresa empresa;
+
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="impuesto_id")
     private Impuestos impuesto;
 
 }
