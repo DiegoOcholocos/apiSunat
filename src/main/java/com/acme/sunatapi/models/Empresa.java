@@ -1,16 +1,11 @@
 package com.acme.sunatapi.models;
-
 import java.math.BigInteger;
-import java.util.Date;
 import java.util.List;
 
 import lombok.*;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
 
 @Getter
 @Setter
@@ -28,10 +23,7 @@ public class Empresa {
     private String razonSocial;
     private String direccion;
 
-    /* @Transient
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Factura> factura;*/
-
+    
     @Transient
     @OneToMany(fetch = FetchType.LAZY)
     private List<Servicio> servicio;

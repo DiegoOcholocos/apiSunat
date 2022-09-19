@@ -1,6 +1,4 @@
 package com.acme.sunatapi.models;
-
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
@@ -9,8 +7,6 @@ import lombok.*;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Getter
@@ -35,10 +31,6 @@ public class Factura {
     @JoinColumn(name="persona_id")
     private Persona persona;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="empresa_id")
-    private Empresa empresa;
 
     @Transient
     @OneToMany(fetch = FetchType.LAZY)

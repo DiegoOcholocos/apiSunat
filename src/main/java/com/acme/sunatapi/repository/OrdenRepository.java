@@ -2,7 +2,6 @@ package com.acme.sunatapi.repository;
 
 import org.springframework.stereotype.Repository;
 
-import com.acme.sunatapi.models.Empresa;
 import com.acme.sunatapi.models.Factura;
 import com.acme.sunatapi.models.Orden;
 

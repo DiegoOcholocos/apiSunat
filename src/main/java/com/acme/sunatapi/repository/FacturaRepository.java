@@ -4,10 +4,7 @@ import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.Query;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.acme.sunatapi.models.Empresa;
 import com.acme.sunatapi.models.Factura;
 import com.acme.sunatapi.models.Persona;
 
@@ -19,9 +16,4 @@ public interface FacturaRepository extends JpaRepository<Factura, BigInteger> {
 
     @Query(value = "SELECT o FROM Factura o WHERE o.persona=?1")
     List<Factura> findFacturasByPersona(Persona persona);
-
-
-
-
-
 }
